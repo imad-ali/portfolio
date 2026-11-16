@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mir Ali — AI Product Management Consultant</title>
+
+<!-- SEO -->
+<meta name="description" content="Mir Ali is an AI Product Management Consultant with 6+ years of PM experience across automotive, AI, and consumer platforms. Available for senior PM roles and consulting engagements." />
+<meta name="author" content="Mir Ali" />
+
+<!-- Open Graph (LinkedIn, Slack, iMessage, email) -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://mir-ali.vercel.app/" />
+<meta property="og:title" content="Mir Ali — AI Product Management Consultant" />
+<meta property="og:description" content="6+ years of PM experience owning customer experience and user adoption. I help organizations define problems worth solving, then execute." />
+<meta property="og:image" content="https://mir-ali.vercel.app/og-preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #080D1A;
+    --surface:   #111827;
+    --card:      #151E30;
+    --card-hover:#1C2740;
+    --border:    rgba(255,255,255,0.07);
+    --teal:      #00C2A8;
+    --teal-dim:  rgba(0,194,168,0.12);
+    --blue:      #4FA3E8;
+    --blue-dim:  rgba(79,163,232,0.1);
+    --text:      #E0E8F5;
+    --muted:     #7A8BA8;
+    --white:     #FFFFFF;
+    --amber:     #F59E0B;
+    --amber-dim: rgba(245,158,11,0.1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(8,13,26,0.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-weight: 800; font-size: 1.15rem; letter-spacing: -.5px; color: var(--white); }
+  .nav-logo span { color: var(--teal); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: .875rem; font-weight: 500; letter-spacing: .3px; transition: color .2s; }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta { background: var(--teal); color: #080D1A; border: none; padding: 9px 22px; border-radius: 6px; font-weight: 700; font-size: .85rem; cursor: pointer; text-decoration: none; letter-spacing: .3px; transition: opacity .2s; }
+  .nav-cta:hover { opacity: .85; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 48px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(0,194,168,0.11) 0%, rgba(79,163,232,0.06) 45%, transparent 70%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; z-index: 0;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 820px; }
+  .hero-dual-pill { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+  .hero-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--teal-dim); border: 1px solid rgba(0,194,168,0.25);
+    color: var(--teal); padding: 6px 14px; border-radius: 100px;
+    font-size: .75rem; font-weight: 700; letter-spacing: .6px; text-transform: uppercase;
+  }
+  .hero-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); animation: pulse 2s ease-in-out infinite; }
+  .hero-pill-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--blue-dim); border: 1px solid rgba(79,163,232,0.2);
+    color: var(--blue); padding: 6px 14px; border-radius: 100px;
+    font-size: .75rem; font-weight: 700; letter-spacing: .6px; text-transform: uppercase;
+  }
+  @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.4; transform:scale(.8); } }
+  h1 { font-size: clamp(2.6rem, 5.5vw, 4.8rem); font-weight: 900; line-height: 1.05; letter-spacing: -2px; color: var(--white); margin-bottom: 24px; }
+  h1 em { font-style: normal; color: var(--teal); }
+  .hero-sub { font-size: clamp(.95rem, 1.8vw, 1.15rem); color: var(--muted); max-width: 620px; line-height: 1.8; margin-bottom: 42px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary { background: var(--teal); color: #080D1A; padding: 13px 28px; border-radius: 8px; border: none; font-weight: 700; font-size: .95rem; cursor: pointer; text-decoration: none; transition: opacity .2s, transform .15s; display: inline-block; }
+  .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--text); padding: 13px 28px; border-radius: 8px; border: 1px solid var(--border); font-weight: 600; font-size: .95rem; cursor: pointer; text-decoration: none; transition: border-color .2s, color .2s; display: inline-block; }
+  .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+
+  /* ── METRICS ── */
+  #metrics {
+    background: var(--surface);
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    padding: 36px 48px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 28px;
+  }
+  .metric { text-align: center; }
+  .metric-num-wrap { display: flex; align-items: baseline; justify-content: center; gap: 1px; }
+  .metric-num { font-size: 2.4rem; font-weight: 900; color: var(--teal); letter-spacing: -1.5px; line-height: 1; }
+  .metric-suffix { font-size: 1.6rem; font-weight: 900; color: var(--teal); letter-spacing: -1px; line-height: 1; }
+  .metric-label { font-size: .72rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .8px; margin-top: 7px; display: block; }
+
+  /* ── SHARED SECTION ── */
+  section { padding: 96px 48px; }
+  .section-eyebrow { font-size: .72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+  h2 { font-size: clamp(1.8rem, 3.5vw, 2.7rem); font-weight: 800; letter-spacing: -1px; color: var(--white); line-height: 1.15; margin-bottom: 16px; }
+  .section-sub { color: var(--muted); font-size: .95rem; max-width: 540px; margin-bottom: 52px; line-height: 1.7; }
+
+  /* ── PROJECTS (LEAD SECTION) ── */
+  #projects { background: var(--bg); }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+
+  .project-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: border-color .2s, transform .2s;
+  }
+  .project-card:hover { border-color: rgba(0,194,168,.35); transform: translateY(-3px); }
+
+  .project-card-top {
+    padding: 28px 28px 0;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+  }
+  .project-icon { font-size: 1.6rem; }
+  .project-badge { font-size: .65rem; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; white-space: nowrap; }
+  .badge-ai { background: var(--teal-dim); border: 1px solid rgba(0,194,168,.25); color: var(--teal); }
+  .badge-shipped { background: var(--blue-dim); border: 1px solid rgba(79,163,232,.25); color: var(--blue); }
+  .badge-building { background: var(--amber-dim); border: 1px solid rgba(245,158,11,.2); color: var(--amber); }
+
+  .project-body { padding: 16px 28px 24px; flex: 1; display: flex; flex-direction: column; }
+  .project-title { font-size: 1.1rem; font-weight: 800; color: var(--white); letter-spacing: -.3px; margin-bottom: 10px; }
+  .project-desc { font-size: .875rem; color: var(--muted); line-height: 1.7; flex: 1; }
+
+  /* case study breakdown */
+  .project-breakdown { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .breakdown-row { display: flex; gap: 10px; font-size: .8rem; }
+  .breakdown-label { color: var(--teal); font-weight: 700; min-width: 72px; letter-spacing: .2px; }
+  .breakdown-val { color: var(--muted); line-height: 1.5; }
+
+  .project-footer { padding: 16px 28px 20px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .project-stack { font-size: .72rem; color: var(--muted); font-weight: 500; }
+  .project-link { font-size: .78rem; font-weight: 700; color: var(--teal); text-decoration: none; display: flex; align-items: center; gap: 5px; transition: opacity .2s; }
+  .project-link:hover { opacity: .75; }
+
+  /* ── CONSULTING WORK (ATI) ── */
+  #consulting { background: var(--surface); }
+  .consulting-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 36px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+    align-items: start;
+  }
+  .consulting-left {}
+  .consulting-eyebrow { font-size: .68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+  .consulting-title { font-size: 1.3rem; font-weight: 800; color: var(--white); letter-spacing: -.4px; line-height: 1.25; margin-bottom: 14px; }
+  .consulting-desc { font-size: .875rem; color: var(--muted); line-height: 1.75; margin-bottom: 24px; }
+  .consulting-highlights { display: flex; flex-direction: column; gap: 12px; }
+  .consulting-highlight { display: flex; gap: 12px; font-size: .82rem; }
+  .ch-icon { color: var(--teal); flex-shrink: 0; font-size: 1rem; margin-top: 1px; }
+  .ch-text { color: var(--muted); line-height: 1.6; }
+  .ch-text strong { color: var(--text); font-weight: 600; }
+
+  .consulting-right {}
+  .consulting-method-title { font-size: .68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+  .method-grid { display: flex; flex-direction: column; gap: 10px; }
+  .method-item {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 16px;
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .method-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+  .method-text {}
+  .method-name { font-size: .82rem; font-weight: 700; color: var(--white); margin-bottom: 2px; }
+  .method-desc { font-size: .75rem; color: var(--muted); line-height: 1.4; }
+
+  /* ── CAREER STRIP ── */
+  #experience { background: var(--bg); }
+  .career-strip { display: flex; flex-direction: column; gap: 0; max-width: 740px; }
+  .career-row {
+    display: grid; grid-template-columns: 100px 160px 1fr;
+    gap: 20px 24px; align-items: baseline;
+    padding: 14px 0; border-bottom: 1px solid var(--border);
+  }
+  .career-row:last-child { border-bottom: none; }
+  .cr-date { font-size: .75rem; color: var(--muted); font-weight: 500; }
+  .cr-company { font-size: .85rem; font-weight: 700; color: var(--white); }
+  .cr-role { font-size: .8rem; color: var(--muted); }
+  .cr-current .cr-company { color: var(--teal); }
+  .cr-current .cr-date { color: var(--teal); }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--surface); }
+  .skills-wrapper { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+  .skill-group { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+  .skill-group-title { font-size: .7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 16px; }
+  .skill-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-pill { background: var(--surface); border: 1px solid var(--border); color: var(--text); font-size: .78rem; font-weight: 500; padding: 5px 12px; border-radius: 6px; }
+  .skill-pill-highlight { background: var(--teal-dim); border: 1px solid rgba(0,194,168,.2); color: var(--teal); font-size: .78rem; font-weight: 600; padding: 5px 12px; border-radius: 6px; }
+
+  /* ── ABOUT ── */
+  #about { background: var(--bg); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .about-text h2 { margin-bottom: 20px; }
+  .about-text p { color: var(--muted); line-height: 1.8; margin-bottom: 16px; font-size: .925rem; }
+  .about-interests { margin-top: 28px; }
+  .about-interests-label { font-size: .7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+  .interest-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+  .interest-chip { display: flex; align-items: center; gap: 8px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 9px 14px; font-size: .82rem; color: var(--text); font-weight: 500; transition: border-color .2s; }
+  .interest-chip:hover { border-color: rgba(0,194,168,.3); }
+
+  .about-visual { display: flex; flex-direction: column; gap: 16px; }
+  .av-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; }
+  .av-card-title { font-size: .7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+  .av-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid var(--border); }
+  .av-row:last-child { border-bottom: none; }
+  .av-label { font-size: .8rem; color: var(--muted); font-weight: 500; }
+  .av-val { font-size: .8rem; color: var(--white); font-weight: 600; }
+  .av-bar-wrap { display: flex; align-items: center; gap: 12px; flex: 1; margin: 0 16px; }
+  .av-bar { height: 4px; background: var(--surface); border-radius: 2px; flex: 1; }
+  .av-fill { height: 100%; background: var(--teal); border-radius: 2px; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--surface); text-align: center; padding: 100px 48px; }
+  #contact h2 { margin: 0 auto 14px; }
+  #contact .section-sub { margin: 0 auto 40px; }
+  .contact-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+  .contact-link { display: flex; align-items: center; gap: 9px; background: var(--card); border: 1px solid var(--border); color: var(--text); text-decoration: none; padding: 13px 24px; border-radius: 9px; font-size: .88rem; font-weight: 600; transition: border-color .2s, color .2s; }
+  .contact-link:hover { border-color: var(--teal); color: var(--teal); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg); border-top: 1px solid var(--border); padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; font-size: .8rem; color: var(--muted); flex-wrap: wrap; gap: 12px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    section, #hero, #metrics, #contact { padding-left: 20px; padding-right: 20px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .consulting-card { grid-template-columns: 1fr; gap: 32px; }
+    .career-row { grid-template-columns: 1fr; gap: 2px; }
+    footer { padding: 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Mir Ali<span>.</span></span>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#consulting">Consulting</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get in Touch</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-dual-pill">
+      <div class="hero-pill">AI Product Management Consultant</div>
+      <div class="hero-pill-secondary">6+ Years PM Experience</div>
+    </div>
+    <h1>AI-powered products,<br/>shipped <em>end to end.</em></h1>
+    <p class="hero-sub">
+      Teams ship faster and smarter when product strategy is paired with modern AI tools. With 6+ years of PM experience owning customer experience and user adoption, I help organizations define problems worth solving, then execute.
+    </p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">See My Work</a>
+      <a href="#contact" class="btn-ghost">Let's Talk</a>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<div id="metrics">
+  <div class="metric">
+    <div class="metric-num-wrap"><span class="metric-num" data-target="6"></span><span class="metric-suffix">+</span></div>
+    <span class="metric-label">Years PM Experience</span>
+  </div>
+  <div class="metric">
+    <div class="metric-num-wrap"><span class="metric-num" data-target="3"></span></div>
+    <span class="metric-label">AI Products Shipped</span>
+  </div>
+  <div class="metric">
+    <div class="metric-num-wrap"><span class="metric-num" data-target="1"></span><span class="metric-suffix">.35B</span></div>
+    <span class="metric-label">Revenue Influenced</span>
+  </div>
+  <div class="metric">
+    <div class="metric-num-wrap"><span class="metric-num" data-target="5"></span></div>
+    <span class="metric-label">Industries Covered</span>
+  </div>
+  <div class="metric">
+    <div class="metric-num-wrap"><span class="metric-num" data-target="3"></span></div>
+    <span class="metric-label">Continents Shipped</span>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-eyebrow">Selected Projects</div>
+  <h2>Problems solved. Outcomes shipped.</h2>
+  <p class="section-sub">From consumer tools to complex business planning — real problems, AI-native approaches, measurable results.</p>
+
+  <div class="projects-grid">
+
+    <!-- JobAgent -->
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-icon">🤖</div>
+        <span class="project-badge badge-ai">AI · Live</span>
+      </div>
+      <div class="project-body">
+        <div class="project-title">JobAgent — AI Job Search Assistant</div>
+        <div class="project-desc">A free, AI-powered tool that helps job seekers research roles, tailor application materials, and track outreach — cutting the repetitive overhead out of a job search without sacrificing quality.</div>
+        <div class="project-breakdown">
+          <div class="breakdown-row"><span class="breakdown-label">Problem</span><span class="breakdown-val">Job searching is high-volume, repetitive, and hard to personalize at scale — most people send generic applications.</span></div>
+          <div class="breakdown-row"><span class="breakdown-label">Approach</span><span class="breakdown-val">Designed and shipped an agentic AI workflow using Lovable; iterated based on personal use and feedback cycles.</span></div>
+          <div class="breakdown-row"><span class="breakdown-label">Outcome</span><span class="breakdown-val">Live, free app — applied AI to a real workflow with measurable reduction in time-per-application.</span></div>
+        </div>
+      </div>
+      <div class="project-footer">
+        <span class="project-stack">Lovable · Agentic AI · React</span>
+        <a href="#contact" class="project-link">View App →</a>
+      </div>
+    </div>
+
+    <!-- Summit Auto Care AI Planning -->
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-icon">🏗️</div>
+        <span class="project-badge badge-building">AI · In Progress</span>
+      </div>
+      <div class="project-body">
+        <div class="project-title">Summit Auto Care — AI-Driven Launch Planning</div>
+        <div class="project-desc">Applied AI product methods to plan and validate a new automotive services business — using AI as a research engine, financial modeling co-pilot, and regulatory compliance tracker.</div>
+        <div class="project-breakdown">
+          <div class="breakdown-row"><span class="breakdown-label">Problem</span><span class="breakdown-val">Traditional business planning is slow, expensive, and often lacks the data depth to de-risk key decisions before capital is committed.</span></div>
+          <div class="breakdown-row"><span class="breakdown-label">Approach</span><span class="breakdown-val">Used AI for market sizing, competitive analysis, site selection, multi-scenario financial modeling, and regulatory research (BAR, EPA, BAAQMD, CUPA).</span></div>
+          <div class="breakdown-row"><span class="breakdown-label">Outcome</span><span class="breakdown-val">Investment-grade business plan and financial model; active funding conversations underway. Launch timeline compressed vs. traditional planning approaches.</span></div>
+        </div>
+      </div>
+      <div class="project-footer">
+        <span class="project-stack">Claude · Agentic AI · Financial Modeling</span>
+      </div>
+    </div>
+
+    <!-- Performance Parts Store -->
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-icon">🏁</div>
+        <span class="project-badge badge-building">AI · In Progress</span>
+      </div>
+      <div class="project-body">
+        <div class="project-title">Performance Parts E-Commerce — AI-Native Go-to-Market</div>
+        <div class="project-desc">Designing and launching an online performance parts retailer using AI to validate the niche, map the catalog, select the supplier, build the brand, and prototype the storefront — before a single dollar of inventory is committed.</div>
+        <div class="project-breakdown">
+          <div class="breakdown-row"><span class="breakdown-label">Problem</span><span class="breakdown-val">Parts e-commerce is crowded; most entrants copy incumbents without validating demand or differentiation.</span></div>
+          <div class="breakdown-row"><span class="breakdown-label">Approach</span><span class="breakdown-val">AI-driven niche validation, supplier research (Turn14 Distribution), catalog scoping, brand naming, and Shopify storefront prototyping.</span></div>
+          <div class="breakdown-row"><span class="breakdown-label">Outcome</span><span class="breakdown-val">Validated go-to-market strategy for Ford, GM, and Mopar performance platforms; storefront in development.</span></div>
+        </div>
+      </div>
+      <div class="project-footer">
+        <span class="project-stack">Claude · Shopify · AI Research</span>
+      </div>
+    </div>
+
+    <!-- Math Homework Helper -->
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-icon">📐</div>
+        <span class="project-badge badge-shipped">Shipped</span>
+      </div>
+      <div class="project-body">
+        <div class="project-title">Math Homework Helper</div>
+        <div class="project-desc">A React/Node.js web and mobile app that walks students through math problems step by step using AI — built to explore cross-platform deployment patterns and AI tutoring UX.</div>
+        <div class="project-breakdown">
+          <div class="breakdown-row"><span class="breakdown-label">Problem</span><span class="breakdown-val">Students need guided, step-by-step explanations — not just answers — to actually learn from AI assistance.</span></div>
+          <div class="breakdown-row"><span class="breakdown-label">Approach</span><span class="breakdown-val">Built full-stack with React and Node.js; deployed on Railway and Render; ported to mobile via Capacitor and desktop via Electron.</span></div>
+          <div class="breakdown-row"><span class="breakdown-label">Outcome</span><span class="breakdown-val">Working cross-platform app across web, iOS, and desktop — a complete 0→1 build.</span></div>
+        </div>
+      </div>
+      <div class="project-footer">
+        <span class="project-stack">React · Node.js · Capacitor · Electron</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONSULTING (ATI) -->
+<section id="consulting">
+  <div class="section-eyebrow">Advisory & Consulting</div>
+  <h2>Structured thinking,<br/>AI-native execution.</h2>
+  <p class="section-sub">Through ATI Enterprises LLC, I help businesses move faster by applying structured product thinking and AI-native tools to their most complex strategy and planning challenges.</p>
+
+  <div class="consulting-card">
+    <div class="consulting-left">
+      <div class="consulting-eyebrow">ATI Enterprises LLC</div>
+      <div class="consulting-title">AI Product Management Consulting &amp; Advisory</div>
+      <div class="consulting-desc">Organizations get faster decisions, sharper strategy, and better-defined products when they pair structured PM methods with modern AI tools. That's the gap I fill — bringing clarity to complex problems, velocity to planning cycles, and rigor to build-vs-buy decisions on AI-native features.</div>
+      <div class="consulting-highlights">
+        <div class="consulting-highlight">
+          <span class="ch-icon">▸</span>
+          <span class="ch-text"><strong>Faster planning, same rigor:</strong> market research, competitive analysis, and multi-scenario financial modeling done with AI — compressing what used to take weeks into days without sacrificing depth.</span>
+        </div>
+        <div class="consulting-highlight">
+          <span class="ch-icon">▸</span>
+          <span class="ch-text"><strong>AI feature strategy that holds up:</strong> clear scope, prioritization, and success metrics for teams building AI-native products or embedding LLMs into existing platforms — decisions that survive stakeholder review.</span>
+        </div>
+        <div class="consulting-highlight">
+          <span class="ch-icon">▸</span>
+          <span class="ch-text"><strong>Automotive domain depth:</strong> go-to-market strategy, product advisory, and competitive intelligence for businesses in automotive services, parts, and technology — grounded in deep experience as an industry insider.</span>
+        </div>
+      </div>
+    </div>
+    <div class="consulting-right">
+      <div class="consulting-method-title">How I Work</div>
+      <div class="method-grid">
+        <div class="method-item">
+          <span class="method-icon">🤖</span>
+          <div class="method-text">
+            <div class="method-name">AI-Native Research</div>
+            <div class="method-desc">Market sizing, competitive mapping, and customer research using agentic AI workflows — faster and deeper than traditional methods.</div>
+          </div>
+        </div>
+        <div class="method-item">
+          <span class="method-icon">📊</span>
+          <div class="method-text">
+            <div class="method-name">Structured Financial Modeling</div>
+            <div class="method-desc">Multi-scenario financial models that drive pricing, staffing, and capital decisions — built to withstand lender and stakeholder scrutiny.</div>
+          </div>
+        </div>
+        <div class="method-item">
+          <span class="method-icon">🗺️</span>
+          <div class="method-text">
+            <div class="method-name">Roadmap &amp; GTM Strategy</div>
+            <div class="method-desc">Phased launch plans, OKR frameworks, and go-to-market strategies grounded in real constraints, not ideal-state thinking.</div>
+          </div>
+        </div>
+        <div class="method-item">
+          <span class="method-icon">⚡</span>
+          <div class="method-text">
+            <div class="method-name">Rapid Prototyping</div>
+            <div class="method-desc">From concept to working prototype using modern AI tools — validating assumptions before resources are committed.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE (COMPACT) -->
+<section id="experience">
+  <div class="section-eyebrow">Career Background</div>
+  <h2>Where I've shipped.</h2>
+  <p class="section-sub">PM roles across five industries — the full detail lives on LinkedIn and my resume.</p>
+
+  <div class="career-strip">
+    <div class="career-row cr-current">
+      <div class="cr-date">Apr 2026 – Present</div>
+      <div class="cr-company">ATI Enterprises LLC</div>
+      <div class="cr-role">AI PM Consultant</div>
+    </div>
+    <div class="career-row">
+      <div class="cr-date">2024 – 2026</div>
+      <div class="cr-company">Lucid Motors</div>
+      <div class="cr-role">Product Manager — Owner Experience</div>
+    </div>
+    <div class="career-row">
+      <div class="cr-date">2021 – 2024</div>
+      <div class="cr-company">AAA Washington</div>
+      <div class="cr-role">Product Owner</div>
+    </div>
+    <div class="career-row">
+      <div class="cr-date">2019 – 2021</div>
+      <div class="cr-company">OpenCaret</div>
+      <div class="cr-role">Product Consultant — Autonomous Vehicles</div>
+    </div>
+    <div class="career-row">
+      <div class="cr-date">2018 – 2019</div>
+      <div class="cr-company">Infineon Technologies</div>
+      <div class="cr-role">Product Operations Manager</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="section-eyebrow">About</div>
+      <h2>The work speaks.<br/>Here's the context.</h2>
+      <p>
+        I operate at the intersection of product strategy and technical execution — the place where most organizations lose velocity. My job is to make sure that doesn't happen: clear problem framing, decisions that stick, and cross-functional teams that move in the same direction. I believe the best product leaders aren't just strategists — they're builders who've taken something from 0 to 1 and know what that actually requires.
+      </p>
+      <div class="about-interests">
+        <div class="about-interests-label">Outside the Office</div>
+        <div class="interest-chips">
+          <div class="interest-chip">🚵 Mountain Biking</div>
+          <div class="interest-chip">🏎️ Everything Automotive</div>
+          <div class="interest-chip">🎬 YouTube Creator</div>
+          <div class="interest-chip">🛠️ Wrenching &amp; Builds</div>
+          <div class="interest-chip">🤖 Building AI Tools</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="av-card">
+        <div class="av-card-title">What I work on</div>
+        <div class="av-row">
+          <span class="av-label">AI-native product strategy</span>
+        </div>
+        <div class="av-row">
+          <span class="av-label">0→1 product builds</span>
+        </div>
+        <div class="av-row">
+          <span class="av-label">Digital commerce &amp; consumer platforms</span>
+        </div>
+        <div class="av-row">
+          <span class="av-label">Automotive services &amp; technology</span>
+        </div>
+        <div class="av-row">
+          <span class="av-label">Cross-functional execution at scale</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-eyebrow">Let's Connect</div>
+  <h2>Let's build something worth shipping.</h2>
+  <p class="section-sub">If you're looking for a PM who takes ownership seriously and uses AI to move faster than the competition — let's talk.</p>
+  <div class="contact-links">
+    <a href="mailto:imad.ali@gmail.com" class="contact-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      imad.ali@gmail.com
+    </a>
+    <a href="https://www.linkedin.com/in/imad-ali-sfbayarea/" target="_blank" rel="noopener" class="contact-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://www.youtube.com/@fightclubMTB" target="_blank" rel="noopener" class="contact-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#080D1A" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+      YouTube
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Mir Ali — AI Product Management Consultant</span>
+  <span>Pleasanton, CA</span>
+</footer>
+
+<script>
+  const counters = document.querySelectorAll('[data-target]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = +el.dataset.target;
+      const duration = 1500;
+      const start = performance.now();
+      const animate = (now) => {
+        const pct = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - pct, 3);
+        el.textContent = Math.round(eased * target);
+        if (pct < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => observer.observe(c));
+
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 40 ? '0 4px 32px rgba(0,0,0,0.5)' : 'none';
+  });
+</script>
+</body>
+</html>
